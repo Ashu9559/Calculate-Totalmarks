@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marks Calculator</title>
+    <style>
+        .container{
+    width: 400px;
+    height: 500px;
+    border: 10px solid rgb(43, 30, 43);
+    border-radius: 20px;
+    background-color: darkslategrey;
+}
+
+.input{
+    margin-top: 25px;
+    margin-left: 25%;
+    width: 200px;
+    height: 30px;
+    border-radius: 10px;
+    border: white;
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+}
+button{
+    margin-top: 20px;
+    width: 150px;
+    height: 50px;
+    border-radius: 20px;
+    background-color: #035b5b;
+    font-size: 30px;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+}
+.btn{
+    text-align: center;
+}
+.para{
+    font-size: 50px;
+    font-weight: bold;
+    color: #032e2e;
+    font-family: cursive;
+}
+.perc{
+    font-size: 80px;
+    font-weight: bolder;
+    color: #032e2e;
+    font-family: cursive;
+
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="inside">
+        <div class="for-input"><input type="number" class="input" id="num1" placeholder="Hindi" value="hindi" min="0" max="100" required></div>
+
+       <div class="for-input"><input type="number" class="input" id="num2" placeholder="English" value="english" min="0" max="100" required></div>
+       <div class="for-input"><input type="number" class="input" id="num3" placeholder="Physics" value="physics" min="0" max="100" required></div>
+       <div class="for-input"><input type="number" class="input" id="num4" placeholder="Chemistry" value="chemistry" min="0" max="100" required></div>
+       <div class="for-input"><input type="number" class="input" id="num5" placeholder="Maths / Biology" value="maths | biology" min="0" max="100" required> </div>
+       <div class="btn"><button type="submit" onclick="
+       calculate()">Calculate</button></div>
+        
+        </div> 
+        <div id="result" style="color: white; font-size: 20px; margin-top: 15px; text-align: center; font-weight: bold;">
+
+        </div>
+    </div>
+    <div class="para">
+        Calculate your
+    </div>
+    <div class="perc">
+        Percentage
+    </div>
+   
+    <script>
+        function calculate(){
+  let num1 = parseFloat(document.getElementById('num1').value);
+  let num2 = parseFloat(document.getElementById('num2').value);
+  let num3 = parseFloat(document.getElementById('num3').value);
+  let num4 = parseFloat(document.getElementById('num4').value);
+  let num5 = parseFloat(document.getElementById('num5').value);
+  let sum = num1 + num2 + num3 + num4 + num5;
+  let maxMarks = 500;
+  let percentage = parseFloat((sum / 500) * 100);
+  if(percentage >= 40){
+    document.getElementById('result').innerHTML = `You have got ${sum} marks out of ${maxMarks} and <br> percentage is ${percentage}% <br> RESULT:  Pass`;
+  }
+ else {
+  document.getElementById('result').innerHTML = `You have got ${sum} marks out of ${maxMarks} and <br> percentage is ${percentage}% <br> RESULT:  Fail`;
+ }
+}
+    </script>
+</body>
+</html>
